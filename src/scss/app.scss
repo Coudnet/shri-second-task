@@ -1,0 +1,896 @@
+@import 'node_modules/bootstrap/scss/bootstrap-reboot';
+@import 'variables';
+
+/*============================
+  Main styles
+==============================
+ */
+body, html {
+  background-color: rgb(246, 245, 243);
+  min-height: 100%;
+  color: $main-text-color;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  @media (min-width: 1200px) {
+    height: 100%;
+  }
+}
+h2 {
+  font-size: $main-h2-font-size;
+  line-height: 21px;
+}
+.app {
+  max-width: 1366px;
+  position: relative;
+  height: 100%;
+  padding-bottom: 61px;
+  margin: 0 auto;
+  background-color: white;
+  transition: filter 0.2s linear;
+  transition-delay: 0.2s;
+}
+.hidden-content {
+  overflow: hidden;
+}
+.hidden-content .app {
+  filter: blur(3px);
+  overflow: hidden;
+}
+
+/*============================
+  Header
+==============================
+ */
+
+header {
+  padding: 12px 20px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  background-color: white;
+  width: 100%;
+  @media (max-width: 1200px) {
+    position: fixed;
+    top: 0;
+    nav {
+      position: absolute;
+      transform: scaleY(0);
+      top: 15px;
+      background-color: white;
+      width: 100%;
+      padding: 20px 20px;
+      transition: transform 0.2s linear, top 0.2s linear;
+    }
+  }
+
+  .show-menu {
+    top: 40px;
+    transform: scaleY(1);
+  }
+
+  a {
+    font-size: 16px;
+    color: $main-grey-text-color;
+    text-decoration: none;
+  }
+  a.current {
+    color: $main-text-color;
+  }
+  a:hover {
+    color: $main-text-color;
+    text-decoration: none;
+  }
+
+  @media (min-width: 1200px) {
+    justify-content: flex-start;
+    padding: 32px 40px;
+    border-bottom: 1px solid #F0F0F0;
+
+    .hamburger {
+      display: none;
+    }
+
+    nav {
+      position: static;
+      transform: scaleY(1);
+      margin-left: 24px;
+
+      a {
+        margin-left: 28px;
+      }
+    }
+
+  }
+}
+
+/*============================
+  Main
+==============================
+ */
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  @media (max-width: 1200px) {
+    padding-top: 50px;
+  }
+}
+
+/*============================
+  Main Board
+==============================
+ */
+
+.main {
+  width: 100%;
+  padding: 20px 20px 0;
+  h2 {
+    display: none;
+  }
+
+  @media (min-width: 1200px) {
+    width: 50%;
+    padding: 30px 40px 0;
+    h2 {
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.main-board {
+  background-image: url(/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/bg@1x.png);
+  background-size: cover;
+  background-origin: content-box;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 282px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+
+  @media (min-width: 1200px) {
+    flex-direction: row;
+    height: 331px;
+    padding-right: 26px;
+    justify-content: space-between;
+  }
+}
+
+.main-board-info {
+  padding: 20px 0 20px 20px;
+  .head {
+    font-size: 18px;
+    margin-bottom: 5px;
+    line-height: 21px;
+  }
+  .sub-head {
+    margin-bottom: 15px;
+    font-size: 12px;
+    font-weight: normal;
+  }
+  @media (min-width: 1200px) {
+    padding: 26px 0 0 25px;
+    .head {
+      font-size: 27px;
+      line-height: 31px;
+    }
+    .sub-head {
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+  }
+}
+
+.temperature {
+  display: flex;
+  .temperature-item {
+    margin-left: 20px;
+  }
+  .temperature-item:first-child {
+    margin-left: 0;
+  }
+}
+.temperature-item-name {
+  font-size: 12px;
+  font-weight: normal;
+  color: $main-grey-text-color;
+  margin-bottom: 5px;
+  @media (min-width: 1200px) {
+    font-size: 14px;
+  }
+}
+.temperature-item-value {
+  font-size: 24px;
+  line-height: 28px;
+  @media (min-width: 1200px) {
+    font-size: 36px;
+    line-height: 42px;
+  }
+}
+.temperature-item-rainy::after {
+  content: '';
+  background-image: url('/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/cloud-drizzle.svg');  //todo Разобраться с относительными путями
+  background-size: contain;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  margin-left: 5px;
+  font-size: 24px;
+  @media (min-width: 1200px) {
+    width: 26px;
+    height: 26px;
+    font-size: 36px;
+  }
+}
+
+.main-board-scripts {
+  @media (min-width: 1200px) {
+    padding: 20px 20px 0 0;
+  }
+}
+
+.device-script {
+  background-color: #F7F7F7;
+  border-radius: 20px;
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 120px;
+  min-width: 200px;
+  max-width: 200px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.device-item:hover {
+  cursor: pointer;
+}
+.device-script-selected {
+  animation: move 0.3s ease-in;
+  animation-fill-mode: forwards;
+  animation-direction: alternate;
+  animation-iteration-count: 2;
+  animation-delay: 0.2s;
+}
+
+@keyframes move {
+  100% {
+    left: calc(50% - 150px);
+    top: calc(50% - 100px);;
+    transform: scale(6);
+    opacity: 0;
+  }
+}
+
+.light-icon-active {
+  background: url('/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/icon_sun_active.svg') no-repeat;
+}
+
+.light-icon-inactive {
+  background: url('/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/icon_sun.svg') no-repeat;
+}
+
+.temp-icon-active {
+  background: url('/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/icon_temperature_active.svg') no-repeat;
+}
+
+.temp-icon-inactive {
+  background: url('/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/icon_temperature.svg') no-repeat;
+}
+
+.device-script-icon {
+  height: 24px;
+  width: 24px;
+}
+
+.device-script-name {
+  font-size: 14px;
+  line-height: 16px;
+}
+.device-script-msg {
+  color: $main-grey-text-color;
+  font-size: 12px;
+  margin-top: 3px;
+  font-weight: normal;
+}
+
+.main-board-scripts {
+  display: flex;
+  overflow-x: scroll;
+  .device-script {
+    margin-left: 20px;
+  }
+  @media (min-width: 1200px) {
+    display: block;
+    overflow: hidden;
+    .device-script {
+      margin-left: 0;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+
+/*============================
+  Favorite Scripts
+==============================
+ */
+
+.favorite-scripts {
+  width: 100%;
+  .favorite-scripts-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 31px 0 20px 20px;
+    h2 {
+      margin-bottom: 0;
+    }
+  }
+  @media (min-width: 1200px) {
+    width: 50%;
+    .favorite-scripts-head {
+      padding-right: 40px;
+    }
+  }
+}
+
+.favorite-devices-list {
+
+  @media (min-width: 1200px) {
+    overflow-x: hidden;
+  }
+}
+.scripts-list {
+  display: flex;
+  overflow-x: scroll;
+  max-height: 345px;
+  .device-script {
+    height: 100px;
+    margin-left: 14px;
+  }
+  .device-script:first-child {
+    margin-left: 20px;
+  }
+  @media (min-width: 1200px) {
+    overflow: hidden;
+    flex-wrap: wrap;
+    .device-script {
+      margin-bottom: 15px;
+    }
+    .device-script:first-child {
+      margin-left: 14px;
+    }
+  }
+}
+
+
+
+/*============================
+  Favorite Devices
+==============================
+ */
+
+.favorite-devices {
+  width: 100%;
+  h2 {
+    margin: 0 3px 0 0;
+    display: flex;
+    align-items: center;
+  }
+  @media (min-width: 1200px) {
+    padding-top: 29px;
+  }
+}
+.favorite-devices-categories {
+  position: relative;
+  display: flex;
+}
+.favorite-devices-categories-hidden {
+  display: flex;
+}
+@media (max-width: 1200px) {
+  .favorite-devices-categories-hidden {
+    transform: scaleY(0);
+    position: absolute;
+    top: 45px;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.4);
+    left: -125px;
+    width: 200px;
+    z-index: 2;
+
+    span::before {
+      content: '\2714';
+      display: inline-block;
+      color: $main-yellow-color;
+      margin-right: 10px;
+    }
+  }
+
+  .show-all-categories {
+    .favorite-devices-categories-hidden {
+      display: block;
+      transform: scaleY(1);
+      .favorite-devices-categories-item {
+        padding: 10px 0;
+      }
+    }
+  }
+
+  .favorite-devices-all {
+    font-size: 13px;
+    padding: 8px 15px;
+    background-color: $main-yellow-color;
+    border-radius: 20px;
+    margin-right: 20px;
+
+    div::after {
+      content: '\203A';
+      transform: rotate(90deg);
+      margin-left: 5px;
+      font-size: 13px;
+      font-weight: bold;
+      display: inline-block;
+    }
+  }
+}
+
+  .favorite-devices-head {
+    margin: 31px 0 20px 20px;
+    @media (min-width: 1200px) {
+      margin: 0 40px 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .favorite-devices-list {
+    overflow-x: scroll;
+    display: flex;
+    margin-bottom: 80px;
+    @media (min-width: 1200px) {
+      overflow-x: hidden;
+      margin-bottom: 20px;
+    }
+  }
+
+  .favorite-devices-head-menu {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .favorite-devices-categories-item {
+    font-size: 13px;
+    span, div {
+      user-select: none;
+    }
+
+    @media (min-width: 1200px) {
+      padding: 8px 15px;
+      background-color: #F7F7F7;
+      border-radius: 20px;
+      margin-left: 10px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .favorite-devices-categories-item-checked {
+    @media (min-width: 1200px) {
+      background-color: $main-yellow-color;
+    }
+  }
+
+  .favorite-devices-list {
+    .device-script {
+      margin-left: 15px;
+    }
+    .device-script:first-child {
+      margin-left: 20px;
+      @media (min-width: 1200px) {
+        margin-left: 40px;
+      }
+    }
+  }
+
+  .arrows {
+    width: 30px;
+    display: none;
+    justify-content: space-between;
+    .arrow {
+      width: 7.7px;
+      height: 13.1px;
+      background-image: url('/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/arrow.svg');
+    }
+    .active-arrow {
+      background-image: url('/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/arrow_active.svg') !important;
+    }
+    .active-arrow:hover {
+      cursor: pointer;
+    }
+    .right-arrow {
+      transform: rotate(180deg);
+    }
+    @media (min-width: 1200px) {
+      display: flex;
+    }
+  }
+
+  /*============================
+    Footer
+  ==============================
+   */
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 100px;
+    a {
+      margin-bottom: 10px;
+      display: block;
+    }
+    a:last-child {
+      margin-bottom: 0;
+    }
+    a, a:hover, .copyright {
+      font-size: 12px;
+      font-weight: normal;
+      color: $main-grey-text-color;
+      text-decoration: none;
+    }
+
+    @media (min-width: 1200px) {
+      padding: 0 40px;
+      height: 61px;
+      a {
+        margin-left: 15px;
+        margin-bottom: 0;
+        display: inline;
+      }
+      a:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+/*============================
+  Device Controls
+==============================
+ */
+  .overblock {
+    position: fixed;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    background-color: rgba(#333333, 0.5);
+    display: none;
+    transition: all 0.1s linear;
+    transition-delay: 0.2s;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+    button {
+      width: 100px;
+      height: 50px;
+      background-color: yellow;
+    }
+  }
+
+  .hidden-content .overblock {
+    display: flex;
+    opacity: 1;
+  }
+
+  .device-wrap {
+    max-width: 630px;
+    width: 100%;
+  }
+
+  .device-wrap-control-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    button {
+      width: 100%;
+      border-radius: 20px;
+      background-color: white;
+      height: 60px;
+      font-weight: bold;
+      border: 1px solid white;
+      margin-bottom: 15px;
+    }
+
+    button.apply {
+      background-color: $main-yellow-color;
+      border: 1px solid $main-yellow-color;
+    }
+
+    button:hover {
+      cursor: pointer;
+    }
+
+    @media (min-width: 768px) {
+      button {
+        max-width: 307px;
+        margin-bottom: 0;
+      }
+      button:first-child {
+        margin-right: 15px;
+      }
+    }
+  }
+
+  .device-control-panel {
+    background-color: white;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    padding: 20px 20px 25px;
+    @media (min-width: 768px) {
+      padding: 25px;
+    }
+  }
+
+  .device-control-info {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .device-control-info-head-text {
+    font-size: 18px;
+    line-height: 21px;
+    margin-bottom: 5px;
+    @media (min-width: 768px) {
+      font-size: 27px;
+      line-height: 31px;
+    }
+  }
+
+  .device-control-info-head-sub-text {
+    font-size: 12px;
+    font-weight: normal;
+    @media (min-width: 768px) {
+      font-size: 14px;
+      line-height: 16px;
+    }
+  }
+
+  .device-control-info-head-icon-wrap {
+    display: none;
+    span {
+      font-size: 36px;
+      line-height: 42px;
+    }
+    @media (min-width: 768px) {
+      display: flex;
+      align-items: flex-start;
+    }
+  }
+
+  .device-control-info-head-icon {
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+  }
+
+  .device-control-pref-list {
+    overflow-x: scroll;
+    max-height: 30px;
+    display: flex;
+    margin-bottom: 25px;
+    @media (min-width: 768px) {
+      overflow-x: auto;
+    }
+  }
+
+  .device-control-pref-item {
+    padding: 7px 15px;
+    background-color: #F2F1F0;
+    margin-left: 10px;
+    font-size: 13px;
+    font-weight: normal;
+    border-radius: 20px;
+    height: 30px;
+    @media (min-width: 768px) {
+      font-weight: bold;
+    }
+  }
+
+  .device-control-pref-item.active {
+    background-color: $main-yellow-color;
+  }
+
+  .device-control-pref-item:first-child {
+    margin-left: 0;
+  }
+
+  .bar {
+    border-radius: 35px;
+    height: 336px;
+    width: 60px;
+    margin: 0 auto;
+    position: relative;
+
+    @media (min-width: 768px) {
+      max-width: 580px;
+      width: 100%;
+      height: 60px;
+      margin: 0 auto;
+    }
+  }
+
+  .light-bar {
+    background-image: linear-gradient(0deg, #FFE88C 0%, #FFB100 100%);
+    @media (min-width: 768px) {
+      background-image: linear-gradient(90deg, #FFE88C 0%, #FFB100 100%);
+    }
+  }
+
+  .bar::before {
+    content: '';
+    position: absolute;
+  }
+
+  .bar::after {
+    content: '';
+    position: absolute;
+  }
+
+  .light-bar::before {
+    background: url('/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/icon_sun_bar.svg') no-repeat;
+    transform: scale(1.2);
+    height: 30px;
+    width: 30px;
+    background-size: cover;
+    top: 15px;
+    left: 14px;
+    @media (min-width: 768px) {
+      right: 14px;
+      left: unset;
+    }
+  }
+
+  .light-bar::after {
+    height: 30px;
+    width: 30px;
+    bottom: 13px;
+    left: 17px;
+    background-size: cover;
+    background: url('/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/icon_sun_bar.svg') no-repeat;
+  }
+
+  .temp-bar {
+    background-image:  linear-gradient(0deg, #068FFF 0%, #FFD800 50%, #F76B1C 100%);
+    @media (min-width: 768px) {
+      background-image: linear-gradient(90deg, #068FFF 0%, #FFD800 50%, #F76B1C 100%);
+    }
+  }
+
+  .temp-bar::before, .temp-bar::after {
+    font-size: 18px;
+    line-height: 21px;
+    color: white;
+  }
+
+  .temp-bar::before {
+    content: '-10';
+    left: 15px;
+    top: 19px;
+  }
+
+  .temp-bar::after {
+    content: '+30';
+    right: 15px;
+    top: 19px;
+    @media (max-width: 768px) {
+      bottom: 19px;
+      top: unset;
+    }
+  }
+
+  .toggle {
+    border: 4px solid #FFFFFF;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);
+    width: 60px;
+    height: 60px;
+    background-color: inherit;
+    position: relative;
+  }
+
+.pie {
+  width: 221px;
+  height: 221px;
+  border-radius: 50%;
+  background: url('/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/OvalGrey.svg') no-repeat;
+  background-size: cover;
+  position: relative;
+  margin: 0 auto;
+}
+
+.pie::before {
+  content: '';
+  width: 50%;
+  height: 100%;
+  z-index: 2;
+  display: block;
+  background: url('/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/Oval.svg') no-repeat;
+  position: absolute;
+  border-radius: 100% 0 0 100% / 50%;
+  transform-origin: right;
+}
+
+.pie::after {
+  content: '';
+  width: 50%;
+  height: 100%;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  border-radius: 0 100% 100% 0 / 50%;
+  transform-origin: left;
+  background: url('/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/Oval.svg') no-repeat right;
+}
+
+.grey-indicator::after {
+  background: url('/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/OvalGrey.svg');
+  transform: rotate(0deg) !important;
+  background-position: right;
+}
+
+.white-stroke {
+  position: absolute;
+  background: url('/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/white-stripe.svg') no-repeat;
+  height: 100%;
+  width: 100%;
+  background-size: 50%;
+  z-index: 3;
+  background-position: bottom;
+}
+
+.twister-active-element {
+  width: 178px;
+  height: 178px;
+  border-radius: 50%;
+  background: url('/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/twister.svg') no-repeat;
+  position: absolute;
+  z-index: 4;
+  top: 22px;
+  left: 22px;
+  transform: rotate(20deg);
+}
+
+.twister-temp {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  z-index: 10;
+}
+
+.twister-temp span {
+  font-size: 66px;
+  line-height: 76px;
+  user-select: none;
+}
+
+
+

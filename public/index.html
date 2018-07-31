@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DashBoard</title>
+    <link rel='stylesheet' href='style.css'>
+</head>
+<body>
+    <div class="app">
+        <header>
+            <div class="page-logo">
+                <img src="images/YandexHouse@1x.png" alt="Логотип Яндекс Дом">
+            </div>
+            <div class="hamburger" id="hamburger">
+                <img src="images/icon_list.svg" alt="Открыть меню">
+            </div>
+            <nav>
+                <a href="#" class="current">Сводка</a>
+                <a href="#">Устройства</a>
+                <a href="#">Сценарии</a>
+            </nav>
+        </header>
+        <main>
+            <section class="main">
+                <h2>Главная</h2>
+                <div class="main-board">
+                    <div class="main-board-info">
+                        <div class="head">Привет, Геннадий!</div>
+                        <div class="sub-head">Двери и окна закрыты, сигнализация включена</div>
+                        <div class="temperature">
+                            <div class="temperature-item">
+                                <div class="temperature-item-name">Дома</div>
+                                <div class="temperature-item-value">+23</div>
+                            </div>
+                            <div class="temperature-item">
+                                <div class="temperature-item-name">За окном</div>
+                                <div class="temperature-item-value temperature-item-rainy">+19</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-board-scripts">
+                        <div class="device-script">
+                            <div class="device-script-icon inactive">
+                                <img src="images/icon_temperature.svg" alt="Сценарий управления температурой">
+                            </div>
+                            <div class="device-script-info">
+                                <div class="device-script-name">Philips Cooler</div>
+                                <div class="device-script-msg">Начнет охлаждать в 16:30</div>
+                            </div>
+                        </div>
+                        <div class="device-script">
+                            <div class="device-script-icon inactive">
+                                <img src="images/icon_temperature.svg" alt="Сценарий управления температурой">
+                            </div>
+                            <div class="device-script-info">
+                                <div class="device-script-name">Philips Cooler</div>
+                                <div class="device-script-msg">Начнет охлаждать в 16:30</div>
+                            </div>
+                        </div>
+                        <div class="device-script">
+                            <div class="device-script-icon inactive">
+                                <img src="images/icon_temperature.svg" alt="Сценарий управления температурой">
+                            </div>
+                            <div class="device-script-info">
+                                <div class="device-script-name">Philips Cooler</div>
+                                <div class="device-script-msg">Начнет охлаждать в 16:30</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="favorite-scripts">
+                <div class="favorite-scripts-head">
+                    <h2>Избранные сценарии</h2>
+                    <div class="arrows" id="scriptArrows">
+                        <div class="arrow"></div>
+                        <div class="arrow right-arrow"></div>
+                    </div>
+                </div>
+                <div class="scripts-list">
+                    <div class="device-script script-item">
+                        <div class="device-script-icon">
+                            <img src="images/icon_sun.svg" alt="Сценарий управления светом">
+                        </div>
+                        <div class="device-script-info">
+                            <div class="device-script-name">Выключить весь свет в доме и во дворе</div>
+                        </div>
+                    </div>
+                    <div class="device-script script-item">
+                        <div class="device-script-icon">
+                            <img src="images/icon_scheduled.svg" alt="Сценарий, привязанный к действию">
+                        </div>
+                        <div class="device-script-info">
+                            <div class="device-script-name">Я ухожу</div>
+                        </div>
+                    </div>
+                    <div class="device-script script-item">
+                        <div class="device-script-icon">
+                            <img src="images/icon_sun_active.svg" alt="Сценарий управления светом">
+                        </div>
+                        <div class="device-script-info">
+                            <div class="device-script-name">Включить свет в коридоре</div>
+                        </div>
+                    </div>
+                    <div class="device-script script-item">
+                        <div class="device-script-icon">
+                            <img src="images/icon_temperature_active.svg" alt="Сценарий управления температурой">
+                        </div>
+                        <div class="device-script-info">
+                            <div class="device-script-name">Набрать горячую ванну</div>
+                            <div class="device-script-msg">Начнется в 18:00</div>
+                        </div>
+                    </div>
+                    <div class="device-script script-item">
+                        <div class="device-script-icon">
+                            <img src="images/icon_temperature.svg" alt="Сценарий управления температурой">
+                        </div>
+                        <div class="device-script-info">
+                            <div class="device-script-name">Сделать пол теплым во всей квартире</div>
+                        </div>
+                    </div>
+                    <div class="device-script script-item">
+                        <div class="device-script-icon">
+                            <img src="images/icon_temperature.svg" alt="Сценарий управления температурой">
+                        </div>
+                        <div class="device-script-info">
+                            <div class="device-script-name">Сделать пол теплым во всей квартире</div>
+                        </div>
+                    </div>
+                    <div class="device-script script-item">
+                        <div class="device-script-icon">
+                            <img src="images/icon_temperature.svg" alt="Сценарий управления температурой">
+                        </div>
+                        <div class="device-script-info">
+                            <div class="device-script-name">Сделать пол теплым во всей квартире</div>
+                        </div>
+                    </div>
+                    <div class="device-script script-item">
+                        <div class="device-script-icon">
+                            <img src="images/icon_temperature.svg" alt="Сценарий управления температурой">
+                        </div>
+                        <div class="device-script-info">
+                            <div class="device-script-name">Сделать пол теплым во всей квартире</div>
+                        </div>
+                    </div>
+                    <div class="device-script script-item">
+                        <div class="device-script-icon">
+                            <img src="images/icon_temperature.svg" alt="Сценарий управления температурой">
+                        </div>
+                        <div class="device-script-info">
+                            <div class="device-script-name">Сделать пол теплым во всей квартире</div>
+                        </div>
+                    </div>
+                    <div class="device-script script-item">
+                        <div class="device-script-icon">
+                            <img src="images/icon_temperature.svg" alt="Сценарий управления температурой">
+                        </div>
+                        <div class="device-script-info">
+                            <div class="device-script-name">Сделать пол теплым во всей квартире</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="favorite-devices">
+                <div class="favorite-devices-head">
+                    <div class="favorite-devices-head-menu">
+                        <h2>Избранные устройства</h2>
+                        <div class="favorite-devices-categories" id="categories">
+                            <div class="favorite-devices-categories-item favorite-devices-categories-item-checked favorite-devices-all" id="category"><div>Все</div></div>
+                            <div class="favorite-devices-categories-hidden">
+                                <div class="favorite-devices-categories-item"><span>Кухня</span></div>
+                                <div class="favorite-devices-categories-item"><span>Зал</span></div>
+                                <div class="favorite-devices-categories-item"><span>Лампочки</span></div>
+                                <div class="favorite-devices-categories-item"><span>Камеры</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="arrows" id="deviceArrows">
+                        <div class="arrow left-arrow-active"></div>
+                        <div class="arrow right-arrow"></div>
+                    </div>
+                </div>
+                <div class="favorite-devices-list" id="device-list">
+                    <div class="device-script device-item" deviceID="3">
+                        <div class="device-script-icon light-icon-active"></div>
+                        <div class="device-script-info">
+                            <div class="device-script-name">Xiaomi Yeelight LED Smart Bulb</div>
+                            <div class="device-script-msg">Включется в 17:00</div>
+                        </div>
+                    </div>
+                    <div class="device-script device-item" deviceID="2">
+                        <div class="device-script-icon temp-icon-active"></div>
+                        <div class="device-script-info">
+                            <div class="device-script-name">Xiaomi Eve Degree Connected</div>
+                            <div class="device-script-msg">Включено</div>
+                        </div>
+                    </div>
+                    <div class="device-script device-item" deviceID="1">
+                        <div class="device-script-icon temp-icon-active"></div>
+                        <div class="device-script-info">
+                            <div class="device-script-name">Xiaomi Warm Floor</div>
+                            <div class="device-script-msg">Включено</div>
+                        </div>
+                    </div>
+                    <div class="device-script device-item">
+                        <div class="device-script-icon inactive">
+                            <img src="images/icon_temperature.svg" alt="Сценарий управления температурой">
+                        </div>
+                        <div class="device-script-info">
+                            <div class="device-script-name">Philips Cooler</div>
+                            <div class="device-script-msg">Начнет охлаждать в 16:30</div>
+                        </div>
+                    </div>
+                    <div class="device-script device-item">
+                        <div class="device-script-icon inactive">
+                            <img src="images/icon_temperature.svg" alt="Сценарий управления температурой">
+                        </div>
+                        <div class="device-script-info">
+                            <div class="device-script-name">Philips Cooler</div>
+                            <div class="device-script-msg">Начнет охлаждать в 16:30</div>
+                        </div>
+                    </div>
+                    <div class="device-script device-item">
+                        <div class="device-script-icon inactive">
+                            <img src="images/icon_temperature.svg" alt="Сценарий управления температурой">
+                        </div>
+                        <div class="device-script-info">
+                            <div class="device-script-name">Philips Cooler</div>
+                            <div class="device-script-msg">Начнет sdохлаждать в 16:30</div>
+                        </div>
+                    </div>
+                    <div class="device-script device-item">
+                        <div class="device-script-icon inactive">
+                            <img src="images/icon_temperature.svg" alt="Сценарий управления температурой">
+                        </div>
+                        <div class="device-script-info">
+                            <div class="device-script-name">Philips Cooler</div>
+                            <div class="device-script-msg">Начнет sdохлаждать в 16:30</div>
+                        </div>
+                    </div>
+                    <div class="device-script device-item">
+                        <div class="device-script-icon inactive">
+                            <img src="images/icon_temperature.svg" alt="Сценарий управления температурой">
+                        </div>
+                        <div class="device-script-info">
+                            <div class="device-script-name">Philips Cooler</div>
+                            <div class="device-script-msg">Начнет sdохлаждать в 16:30</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="footer-menu">
+                <a href="#">Помощь</a>
+                <a href="#">Обратная связь</a>
+                <a href="#">Разработчикам</a>
+                <a href="#">Условия использования</a>
+            </div>
+            <div class="copyright">
+                &copy;&nbsp;2001&ndash;2017 ООО&nbsp;&laquo;Яндекс&raquo;
+            </div>
+        </footer>
+    </div>
+    <div class="overblock">
+        <div class="device-wrap">
+            <div class="device-control-panel">
+                <div class="device-control-info">
+                    <div class="device-control-info-head">
+                        <div class="device-control-info-head-text">
+                            Xiaomi Yeelight LED Smart Bulb
+                        </div>
+                        <div class="device-control-info-head-sub-text">
+                            Включен
+                        </div>
+                    </div>
+                    <div class="device-control-info-head-icon-wrap">
+                        <div class="device-control-info-head-icon light-icon-active"></div>
+                    </div>
+                </div>
+                <div class="device-control-pref-list">
+                    <div class="device-control-pref-item active">Вручную</div>
+                    <div class="device-control-pref-item">Дневной свет</div>
+                    <div class="device-control-pref-item">Вечерний свет</div>
+                    <div class="device-control-pref-item">Рассвет</div>
+                </div>
+                <div class="device-control">
+                    <div class="bar light-bar">
+                        <div class="toggle"><div class="toggle-in"></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="device-control-panel">
+                <div class="device-control-info">
+                    <div class="device-control-info-head">
+                        <div class="device-control-info-head-text">
+                            Elgato Eve Degree Connected
+                        </div>
+                        <div class="device-control-info-head-sub-text">
+                            Включен
+                        </div>
+                    </div>
+                    <div class="device-control-info-head-icon-wrap">
+                        <span>+23</span>
+                        <div class="device-control-info-head-icon temp-icon-active"></div>
+                    </div>
+                </div>
+                <div class="device-control-pref-list">
+                    <div class="device-control-pref-item active">Вручную</div>
+                    <div class="device-control-pref-item">Холодно</div>
+                    <div class="device-control-pref-item">Тепло</div>
+                </div>
+                <div class="device-control">
+                    <div class="bar temp-bar">
+                        <div class="toggle"><div class="toggle-in"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="device-control-panel">
+                <div class="device-control-info">
+                    <div class="device-control-info-head">
+                        <div class="device-control-info-head-text">
+                            Xiaomi Warm Floor
+                        </div>
+                        <div class="device-control-info-head-sub-text">
+                            Включен
+                        </div>
+                    </div>
+                    <div class="device-control-info-head-icon-wrap">
+                        <span>+23</span>
+                        <div class="device-control-info-head-icon temp-icon-active"></div>
+                    </div>
+                </div>
+                <div class="device-control">
+                    <div class="twister">
+                        <div class="pie">
+                            <div class="white-stroke"></div>
+                            <div class="twister-active-element"></div>
+                            <div class="twister-temp"><span>+30</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="device-wrap-control-buttons">
+                <button class="device-wrap-control-apply apply">Применить</button>
+                <button class="device-wrap-control-close" id="deviceControlClose">Закрыть</button>
+            </div>
+        </div>
+     </div>
+<script type="text/javascript" src="bundle.js"></script>
+</body>
+</html>
