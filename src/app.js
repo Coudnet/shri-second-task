@@ -75,43 +75,21 @@ function findParent(elem, className) {
 }
 
 function openScenarioDeviceInfo(event) {
-    document.body.classList.add('hidden-content');
-
-    let parentList = document.getElementById('device-list');
     let target = findParent(event.target, 'device-item');
     let deviceID = target.getAttribute('deviceID');
-    let coords = target.getBoundingClientRect();
 
-
+    document.body.classList.add('hidden-content');
     Array.prototype.slice.call(document.getElementsByClassName('device-control-panel')).forEach(control => {
         if( control.getAttribute('deviceID') === deviceID ) {
             control.style.display = 'block';
             controlGlobal = control;
         }
     });
-
-    targetDevice = target.cloneNode(true);
-
-    targetDevice.style.top = coords.top + "px";
-    targetDevice.style.left = coords.left + ( -1 * target.translatex ) -15 + "px";
-    targetDevice.style.position = 'fixed';
-    targetDevice.classList.add('device-script-selected');
-
-    parentList.appendChild(targetDevice);
-
-    setTimeout(() => {
-        targetDevice.style.animationPlayState = 'paused'
-    }, 500);
 }
 
 function closeScenarioDeviceInfo() {
     document.body.classList.remove('hidden-content');
-    document.getElementById('device-list').removeChild(targetDevice);
-    targetDevice.style.animationPlayState = 'running';
     controlGlobal.style.display = 'none';
-    setTimeout(() => {
-        targetDevice.classList.remove('device-script-selected');
-    }, 300);
 }
 
 function categoryChecked(event) {

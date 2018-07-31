@@ -5,9 +5,6 @@ Array.prototype.slice.call(sliderElems).forEach(sliderElem => {
     let thumbElem = sliderElem.getElementsByClassName('toggle')[0];
 
     sliderElem.onmousedown = onMouseDownProto(thumbElem, sliderElem);
-    sliderElem.ondragstart = function() {
-        return false;
-    };
 
     if ( document.getElementsByClassName('app')[0].clientWidth > 768 ) {
         thumbElem.addEventListener("touchstart", handleStartProto(thumbElem, sliderElem), false);
@@ -23,7 +20,7 @@ function handleStartMobileProto(thumbElem, sliderElem) {
         let shiftY = e.changedTouches[0].pageY - thumbCoords.top;
         let sliderCoords = getCoords(sliderElem);
 
-        document.addEventListener("touchmove", function (e) {
+        sliderElem.addEventListener("touchmove", function (e) {
             let newTop = e.changedTouches[0].pageY - shiftY - sliderCoords.top;
 
             if (newTop < 0) {
@@ -36,6 +33,10 @@ function handleStartMobileProto(thumbElem, sliderElem) {
 
             thumbElem.style.top = newTop + 'px';
         }, false);
+        sliderElem.addEventListener('touchend', function () {
+            sliderElem.removeEventListener('touchmove');
+            sliderElem.removeEventListener('touchend');
+        })
     }
 }
 
@@ -45,7 +46,7 @@ function handleStartProto(thumbElem, sliderElem) {
         let shiftX = e.changedTouches[0].pageX - thumbCoords.left;
         let sliderCoords = getCoords(sliderElem);
 
-        document.addEventListener("touchmove", function (e) {
+        sliderElem.addEventListener("touchmove", function (e) {
             let newLeft = e.changedTouches[0].pageX - shiftX - sliderCoords.left;
 
             if (newLeft < 0) {
@@ -58,6 +59,10 @@ function handleStartProto(thumbElem, sliderElem) {
 
             thumbElem.style.left = newLeft + 'px';
         }, false);
+        sliderElem.addEventListener('touchend', function () {
+            sliderElem.removeEventListener('touchmove');
+            sliderElem.removeEventListener('touchend');
+        })
     }
 }
 
@@ -69,7 +74,7 @@ function onMouseDownProto(thumbElem, sliderElem) {
 
         let sliderCoords = getCoords(sliderElem);
 
-        document.onmousemove = function (e) {
+        sliderElem.onmousemove = function (e) {
             let newLeft = e.pageX - shiftX - sliderCoords.left;
 
             if (newLeft < 0) {
@@ -83,8 +88,8 @@ function onMouseDownProto(thumbElem, sliderElem) {
             thumbElem.style.left = newLeft + 'px';
         };
 
-        document.onmouseup = function () {
-            document.onmousemove = document.onmouseup = null;
+        sliderElem.onmouseup = function () {
+            sliderElem.onmousemove = sliderElem.onmouseup = null;
         };
 
         return false;

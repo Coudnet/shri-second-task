@@ -242,26 +242,14 @@ main {
   min-width: 200px;
   max-width: 200px;
   transition: transform 0.2s ease-in-out;
+
+  .device-wrap {
+    display: none;
+  }
 }
 
 .device-item:hover {
   cursor: pointer;
-}
-.device-script-selected {
-  animation: move 0.3s ease-in;
-  animation-fill-mode: forwards;
-  animation-direction: alternate;
-  animation-iteration-count: 2;
-  animation-delay: 0.2s;
-}
-
-@keyframes move {
-  100% {
-    left: calc(50% - 150px);
-    top: calc(50% - 100px);;
-    transform: scale(6);
-    opacity: 0;
-  }
 }
 
 .light-icon-active {
@@ -566,252 +554,252 @@ main {
   Device Controls
 ==============================
  */
-  .overblock {
-    position: fixed;
-    opacity: 0;
+.overblock {
+  position: fixed;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  background-color: rgba(#333333, 0.5);
+  display: none;
+  transition: all 0.1s linear;
+  transition-delay: 0.1s;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+
+  button {
+    width: 100px;
+    height: 50px;
+    background-color: yellow;
+  }
+}
+
+.hidden-content .overblock {
+  display: flex;
+  opacity: 1;
+}
+
+.device-wrap {
+  max-width: 630px;
+  width: 100%;
+}
+
+.device-wrap-control-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  button {
     width: 100%;
-    height: 100%;
-    z-index: 9999;
-    top: 0;
-    left: 0;
-    background-color: rgba(#333333, 0.5);
-    display: none;
-    transition: all 0.1s linear;
-    transition-delay: 0.2s;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-
-    button {
-      width: 100px;
-      height: 50px;
-      background-color: yellow;
-    }
-  }
-
-  .hidden-content .overblock {
-    display: flex;
-    opacity: 1;
-  }
-
-  .device-wrap {
-    max-width: 630px;
-    width: 100%;
-  }
-
-  .device-wrap-control-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    button {
-      width: 100%;
-      border-radius: 20px;
-      background-color: white;
-      height: 60px;
-      font-weight: bold;
-      border: 1px solid white;
-      margin-bottom: 15px;
-    }
-
-    button.apply {
-      background-color: $main-yellow-color;
-      border: 1px solid $main-yellow-color;
-    }
-
-    button:hover {
-      cursor: pointer;
-    }
-
-    @media (min-width: 768px) {
-      button {
-        max-width: 307px;
-        margin-bottom: 0;
-      }
-      button:first-child {
-        margin-right: 15px;
-      }
-    }
-  }
-
-  .device-control-panel {
+    border-radius: 20px;
     background-color: white;
-    border-radius: 20px;
-    margin-bottom: 15px;
-    padding: 20px 20px 25px;
-    display: none;
-    @media (min-width: 768px) {
-      padding: 25px;
-    }
-  }
-
-  .device-control-info {
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .device-control-info-head-text {
-    font-size: 18px;
-    line-height: 21px;
-    margin-bottom: 5px;
-    @media (min-width: 768px) {
-      font-size: 27px;
-      line-height: 31px;
-    }
-  }
-
-  .device-control-info-head-sub-text {
-    font-size: 12px;
-    font-weight: normal;
-    @media (min-width: 768px) {
-      font-size: 14px;
-      line-height: 16px;
-    }
-  }
-
-  .device-control-info-head-icon-wrap {
-    display: none;
-    span {
-      font-size: 36px;
-      line-height: 42px;
-    }
-    @media (min-width: 768px) {
-      display: flex;
-      align-items: flex-start;
-    }
-  }
-
-  .device-control-info-head-icon {
-    background-size: cover;
-    width: 40px;
-    height: 40px;
-  }
-
-  .device-control-pref-list {
-    overflow-x: scroll;
-    max-height: 30px;
-    display: flex;
-    margin-bottom: 25px;
-    @media (min-width: 768px) {
-      overflow-x: auto;
-    }
-  }
-
-  .device-control-pref-item {
-    padding: 7px 15px;
-    background-color: #F2F1F0;
-    margin-left: 10px;
-    font-size: 13px;
-    font-weight: normal;
-    border-radius: 20px;
-    height: 30px;
-    @media (min-width: 768px) {
-      font-weight: bold;
-    }
-  }
-
-  .device-control-pref-item.active {
-    background-color: $main-yellow-color;
-  }
-
-  .device-control-pref-item:first-child {
-    margin-left: 0;
-  }
-
-  .bar {
-    border-radius: 35px;
-    height: 336px;
-    width: 60px;
-    margin: 0 auto;
-    position: relative;
-
-    @media (min-width: 768px) {
-      max-width: 580px;
-      width: 100%;
-      height: 60px;
-      margin: 0 auto;
-    }
-  }
-
-  .light-bar {
-    background-image: linear-gradient(0deg, #FFE88C 0%, #FFB100 100%);
-    @media (min-width: 768px) {
-      background-image: linear-gradient(90deg, #FFE88C 0%, #FFB100 100%);
-    }
-  }
-
-  .bar::before {
-    content: '';
-    position: absolute;
-  }
-
-  .bar::after {
-    content: '';
-    position: absolute;
-  }
-
-  .light-bar::before {
-    background: url(../../public/images/icon_sun_bar.svg) no-repeat;
-    transform: scale(1.2);
-    height: 30px;
-    width: 30px;
-    background-size: cover;
-    top: 15px;
-    left: 14px;
-    @media (min-width: 768px) {
-      right: 14px;
-      left: unset;
-    }
-  }
-
-  .light-bar::after {
-    height: 30px;
-    width: 30px;
-    bottom: 13px;
-    left: 17px;
-    background-size: cover;
-    background: url(../../public/images/icon_sun_bar.svg) no-repeat;
-  }
-
-  .temp-bar {
-    background-image:  linear-gradient(0deg, #068FFF 0%, #FFD800 50%, #F76B1C 100%);
-    @media (min-width: 768px) {
-      background-image: linear-gradient(90deg, #068FFF 0%, #FFD800 50%, #F76B1C 100%);
-    }
-  }
-
-  .temp-bar::before, .temp-bar::after {
-    font-size: 18px;
-    line-height: 21px;
-    color: white;
-  }
-
-  .temp-bar::before {
-    content: '-10';
-    left: 15px;
-    top: 19px;
-  }
-
-  .temp-bar::after {
-    content: '+30';
-    right: 15px;
-    top: 19px;
-    @media (max-width: 768px) {
-      bottom: 19px;
-      top: unset;
-    }
-  }
-
-  .toggle {
-    border: 4px solid #FFFFFF;
-    border-radius: 50%;
-    box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);
-    width: 60px;
     height: 60px;
-    background-color: inherit;
-    position: relative;
+    font-weight: bold;
+    border: 1px solid white;
+    margin-bottom: 15px;
   }
+
+  button.apply {
+    background-color: $main-yellow-color;
+    border: 1px solid $main-yellow-color;
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+
+  @media (min-width: 768px) {
+    button {
+      max-width: 307px;
+      margin-bottom: 0;
+    }
+    button:first-child {
+      margin-right: 15px;
+    }
+  }
+}
+
+.device-control-panel {
+  background-color: white;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  padding: 20px 20px 25px;
+  display: none;
+  @media (min-width: 768px) {
+    padding: 25px;
+  }
+}
+
+.device-control-info {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.device-control-info-head-text {
+  font-size: 18px;
+  line-height: 21px;
+  margin-bottom: 5px;
+  @media (min-width: 768px) {
+    font-size: 27px;
+    line-height: 31px;
+  }
+}
+
+.device-control-info-head-sub-text {
+  font-size: 12px;
+  font-weight: normal;
+  @media (min-width: 768px) {
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+
+.device-control-info-head-icon-wrap {
+  display: none;
+  span {
+    font-size: 36px;
+    line-height: 42px;
+  }
+  @media (min-width: 768px) {
+    display: flex;
+    align-items: flex-start;
+  }
+}
+
+.device-control-info-head-icon {
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+}
+
+.device-control-pref-list {
+  overflow-x: scroll;
+  max-height: 30px;
+  display: flex;
+  margin-bottom: 25px;
+  @media (min-width: 768px) {
+    overflow-x: auto;
+  }
+}
+
+.device-control-pref-item {
+  padding: 7px 15px;
+  background-color: #F2F1F0;
+  margin-left: 10px;
+  font-size: 13px;
+  font-weight: normal;
+  border-radius: 20px;
+  height: 30px;
+  @media (min-width: 768px) {
+    font-weight: bold;
+  }
+}
+
+.device-control-pref-item.active {
+  background-color: $main-yellow-color;
+}
+
+.device-control-pref-item:first-child {
+  margin-left: 0;
+}
+
+.bar {
+  border-radius: 35px;
+  height: 336px;
+  width: 60px;
+  margin: 0 auto;
+  position: relative;
+
+  @media (min-width: 768px) {
+    max-width: 580px;
+    width: 100%;
+    height: 60px;
+    margin: 0 auto;
+  }
+}
+
+.light-bar {
+  background-image: linear-gradient(0deg, #FFE88C 0%, #FFB100 100%);
+  @media (min-width: 768px) {
+    background-image: linear-gradient(90deg, #FFE88C 0%, #FFB100 100%);
+  }
+}
+
+.bar::before {
+  content: '';
+  position: absolute;
+}
+
+.bar::after {
+  content: '';
+  position: absolute;
+}
+
+.light-bar::before {
+  background: url(../../public/images/icon_sun_bar.svg) no-repeat;
+  transform: scale(1.2);
+  height: 30px;
+  width: 30px;
+  background-size: cover;
+  top: 15px;
+  left: 14px;
+  @media (min-width: 768px) {
+    right: 14px;
+    left: unset;
+  }
+}
+
+.light-bar::after {
+  height: 30px;
+  width: 30px;
+  bottom: 13px;
+  left: 17px;
+  background-size: cover;
+  background: url(../../public/images/icon_sun_bar.svg) no-repeat;
+}
+
+.temp-bar {
+  background-image:  linear-gradient(0deg, #068FFF 0%, #FFD800 50%, #F76B1C 100%);
+  @media (min-width: 768px) {
+    background-image: linear-gradient(90deg, #068FFF 0%, #FFD800 50%, #F76B1C 100%);
+  }
+}
+
+.temp-bar::before, .temp-bar::after {
+  font-size: 18px;
+  line-height: 21px;
+  color: white;
+}
+
+.temp-bar::before {
+  content: '-10';
+  left: 15px;
+  top: 19px;
+}
+
+.temp-bar::after {
+  content: '+30';
+  right: 15px;
+  top: 19px;
+  @media (max-width: 768px) {
+    bottom: 19px;
+    top: unset;
+  }
+}
+
+.toggle {
+  border: 4px solid #FFFFFF;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);
+  width: 60px;
+  height: 60px;
+  background-color: inherit;
+  position: relative;
+}
 
 .pie {
   width: 221px;
