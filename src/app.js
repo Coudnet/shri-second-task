@@ -56,7 +56,12 @@ function ready() {
 }
 
 function onwheel(e) {
-    currentDelta += e.deltaY;
+    if(e.deltaY < 0) {
+        currentDelta += e.deltaY > -40 ? -100 : e.deltaY;
+    } else {
+        currentDelta += e.deltaY < 40 ? 100 : e.deltaY;
+    }
+
     if(currentDelta > 0) {
         mainBoardScripts.classList.remove('more');
         if(currentDelta <= mainDevicesNum * 215) {
