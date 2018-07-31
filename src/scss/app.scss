@@ -95,9 +95,12 @@ header {
       position: static;
       transform: scaleY(1);
       margin-left: 24px;
+      line-height: 24px;
 
       a {
         margin-left: 28px;
+        line-height: 20px;
+        vertical-align: sub;
       }
     }
 
