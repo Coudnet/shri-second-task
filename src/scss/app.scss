@@ -27,7 +27,6 @@ h2 {
   margin: 0 auto;
   background-color: white;
   transition: filter 0.2s linear;
-  transition-delay: 0.2s;
 }
 .hidden-content {
   overflow: hidden;
@@ -290,6 +289,7 @@ main {
 .main-board-scripts {
   display: flex;
   overflow-x: scroll;
+  position: relative;
   .device-script {
     margin-left: 20px;
   }
@@ -301,6 +301,21 @@ main {
       margin-bottom: 15px;
     }
   }
+  .more-block {
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    height: 41px;
+    width: 200px;
+    background-color: #F7F7F7;
+    border-radius: 20px 20px 0 0;
+    z-index: 2;
+  }
+}
+.main-board-scripts.more .more-block {
+  display: flex;
 }
 
 

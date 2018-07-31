@@ -7,8 +7,10 @@ document.addEventListener("DOMContentLoaded", ready);
 
 let devicePagination;
 let scriptPagination;
-let targetDevice;
 let controlGlobal;
+let mainDevicesNum;
+let mainDevices;
+let currentDelta = 0;
 
 function ready() {
     if(document.getElementsByClassName('app')[0].clientWidth > 1200) {
@@ -29,6 +31,14 @@ function ready() {
         leftArrow.addEventListener('click', scriptsPrevPage);
         rightArrow.addEventListener('click', scriptsNextPage);
 
+        mainDevices = Array.prototype.slice.call(mainBoardScripts.getElementsByClassName('device-script'));
+        mainDevicesNum = mainDevices.length - 2;
+        if( mainDevicesNum > 0 ) {
+            mainBoardScripts.classList.add('more');
+            mainBoardScripts.addEventListener('wheel', onwheel);
+        }
+
+
     }
 
     Array.prototype.slice.call(document.getElementsByClassName('device-item')).forEach(elem => {
@@ -43,6 +53,24 @@ function ready() {
     deviceControlClose.addEventListener('click', closeScenarioDeviceInfo);
     hamburger.addEventListener('click', menuToggle);
     category.addEventListener('click', categoryToggle);
+}
+
+function onwheel(e) {
+    currentDelta += e.deltaY;
+    if(currentDelta > 0) {
+        mainBoardScripts.classList.remove('more');
+        if(currentDelta <= mainDevicesNum * 215) {
+            mainDevices.forEach(elem => {
+                elem.style.transform = `translateY(-${currentDelta}px)`
+            })
+        }
+    } else {
+        currentDelta = 0;
+        mainBoardScripts.classList.add('more');
+        mainDevices.forEach(elem => {
+            elem.style.transform = `translateY(0px)`
+        })
+    }
 }
 
 function scriptsNextPage() {
