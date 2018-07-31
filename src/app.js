@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", ready);
 let devicePagination;
 let scriptPagination;
 let targetDevice;
+let controlGlobal;
 
 function ready() {
     if(document.getElementsByClassName('app')[0].clientWidth > 1200) {
@@ -78,7 +79,16 @@ function openScenarioDeviceInfo(event) {
 
     let parentList = document.getElementById('device-list');
     let target = findParent(event.target, 'device-item');
+    let deviceID = target.getAttribute('deviceID');
     let coords = target.getBoundingClientRect();
+
+
+    Array.prototype.slice.call(document.getElementsByClassName('device-control-panel')).forEach(control => {
+        if( control.getAttribute('deviceID') === deviceID ) {
+            control.style.display = 'block';
+            controlGlobal = control;
+        }
+    });
 
     targetDevice = target.cloneNode(true);
 
@@ -96,8 +106,9 @@ function openScenarioDeviceInfo(event) {
 
 function closeScenarioDeviceInfo() {
     document.body.classList.remove('hidden-content');
-
+    document.getElementById('device-list').removeChild(targetDevice);
     targetDevice.style.animationPlayState = 'running';
+    controlGlobal.style.display = 'none';
     setTimeout(() => {
         targetDevice.classList.remove('device-script-selected');
     }, 300);
