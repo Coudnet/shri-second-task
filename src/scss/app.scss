@@ -556,7 +556,6 @@ main {
  */
 .overblock {
   position: fixed;
-  opacity: 0;
   width: 100%;
   height: 100%;
   z-index: 9999;
@@ -564,22 +563,23 @@ main {
   left: 0;
   background-color: rgba(#333333, 0.5);
   display: none;
-  transition: all 0.1s linear;
-  transition-delay: 0.1s;
   justify-content: center;
-  align-items: center;
   padding: 20px;
+  overflow: scroll;
+  box-sizing: border-box;
 
   button {
     width: 100px;
     height: 50px;
     background-color: yellow;
   }
+  @media (min-width: 768px) {
+    align-items: center;
+  }
 }
 
 .hidden-content .overblock {
   display: flex;
-  opacity: 1;
 }
 
 .device-wrap {
