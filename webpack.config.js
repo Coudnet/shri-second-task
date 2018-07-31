@@ -10,15 +10,44 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.scss$/,
+                test: /\.(png|jpg|gif|svg)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {name: 'img/[name].[ext]'}
+                    }
+                ]
+            },
+            {
+                test: /\.(sass|scss)$/,
+                include: path.resolve(__dirname, 'src/scss'),
                 use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: ['css-loader', 'sass-loader?sourceMap','resolve-url-loader']
+                    use: [{
+                        loader: "css-loader",
+                        options: {
+                            sourceMap: true,
+                            minimize: true//,
+                            //url: false
+                        }
+                    },
+                        {
+                            loader: "resolve-url-loader"
+                        },
+                        {
+                            loader: "sass-loader",
+                            options: {
+                                sourceMap: true
+                            }
+                        }
+                    ]
                 })
             }
         ]
     },
     plugins: [
-        new ExtractTextPlugin('style.css'),
+        new ExtractTextPlugin({
+            filename: 'style.css',
+            allChunks: true,
+        }),
     ]
 };

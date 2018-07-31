@@ -140,7 +140,7 @@ main {
 }
 
 .main-board {
-  background-image: url(/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/bg@1x.png);
+  background-image: url(../../public/images/bg@1x.png);
   background-size: cover;
   background-origin: content-box;
   background-repeat: no-repeat;
@@ -211,7 +211,7 @@ main {
 }
 .temperature-item-rainy::after {
   content: '';
-  background-image: url('/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/cloud-drizzle.svg');  //todo Разобраться с относительными путями
+  background-image: url(../../public/images/cloud-drizzle.svg);
   background-size: contain;
   width: 18px;
   height: 18px;
@@ -265,19 +265,19 @@ main {
 }
 
 .light-icon-active {
-  background: url('/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/icon_sun_active.svg') no-repeat;
+  background: url(../../public/images/icon_sun_active.svg) no-repeat;
 }
 
 .light-icon-inactive {
-  background: url('/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/icon_sun.svg') no-repeat;
+  background: url(../../public/images/icon_sun.svg) no-repeat;
 }
 
 .temp-icon-active {
-  background: url('/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/icon_temperature_active.svg') no-repeat;
+  background: url(../../public/images/icon_temperature_active.svg) no-repeat;
 }
 
 .temp-icon-inactive {
-  background: url('/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/icon_temperature.svg') no-repeat;
+  background: url(../../public/images/icon_temperature.svg) no-repeat;
 }
 
 .device-script-icon {
@@ -505,10 +505,10 @@ main {
     .arrow {
       width: 7.7px;
       height: 13.1px;
-      background-image: url('/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/arrow.svg');
+      background-image: url(../../public/images/arrow.svg);
     }
     .active-arrow {
-      background-image: url('/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/arrow_active.svg') !important;
+      background-image: url(../../public/images/arrow_active.svg) !important;
     }
     .active-arrow:hover {
       cursor: pointer;
@@ -751,7 +751,7 @@ main {
   }
 
   .light-bar::before {
-    background: url('/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/icon_sun_bar.svg') no-repeat;
+    background: url(../../public/images/icon_sun_bar.svg) no-repeat;
     transform: scale(1.2);
     height: 30px;
     width: 30px;
@@ -770,7 +770,7 @@ main {
     bottom: 13px;
     left: 17px;
     background-size: cover;
-    background: url('/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/icon_sun_bar.svg') no-repeat;
+    background: url(../../public/images/icon_sun_bar.svg) no-repeat;
   }
 
   .temp-bar {
@@ -816,7 +816,7 @@ main {
   width: 221px;
   height: 221px;
   border-radius: 50%;
-  background: url('/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/OvalGrey.svg') no-repeat;
+  background: url(../../public/images/OvalGrey.svg) no-repeat;
   background-size: cover;
   position: relative;
   margin: 0 auto;
@@ -828,7 +828,7 @@ main {
   height: 100%;
   z-index: 2;
   display: block;
-  background: url('/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/Oval.svg') no-repeat;
+  background: url(../../public/images/Oval.svg) no-repeat;
   position: absolute;
   border-radius: 100% 0 0 100% / 50%;
   transform-origin: right;
@@ -844,18 +844,17 @@ main {
   z-index: 1;
   border-radius: 0 100% 100% 0 / 50%;
   transform-origin: left;
-  background: url('/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/Oval.svg') no-repeat right;
+  background: url(../../public/images/Oval.svg) no-repeat right;
 }
 
 .grey-indicator::after {
-  background: url('/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/OvalGrey.svg');
+  background: url(../../public/images/OvalGrey.svg) no-repeat right;
   transform: rotate(0deg) !important;
-  background-position: right;
 }
 
 .white-stroke {
   position: absolute;
-  background: url('/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/white-stripe.svg') no-repeat;
+  background: url(../../public/images/white-stripe.svg) no-repeat;
   height: 100%;
   width: 100%;
   background-size: 50%;
@@ -867,7 +866,7 @@ main {
   width: 178px;
   height: 178px;
   border-radius: 50%;
-  background: url('/D:/VBMachines/Projects/yandex_sid/entrance-task-2/entrance-task-2/public/images/twister.svg') no-repeat;
+  background: url(../../public/images/twister.svg) no-repeat;
   position: absolute;
   z-index: 4;
   top: 22px;
