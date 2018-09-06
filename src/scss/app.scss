@@ -49,6 +49,8 @@ header {
   position: relative;
   background-color: white;
   width: 100%;
+  z-index: 999;
+
   @media (max-width: 1200px) {
     position: fixed;
     top: 0;
@@ -56,15 +58,20 @@ header {
       position: absolute;
       transform: scaleY(0);
       top: 15px;
+      left: 0;
       background-color: white;
       width: 100%;
       padding: 20px 20px;
       transition: transform 0.2s linear, top 0.2s linear;
+
+      a {
+        margin-left: 15px;
+      }
     }
   }
 
   .show-menu {
-    top: 40px;
+    top: 50px;
     transform: scaleY(1);
   }
 

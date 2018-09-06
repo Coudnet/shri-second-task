@@ -2,7 +2,7 @@ import './scss/app.scss'
 import './dragndrop.js'
 import './twister.js'
 import { DevicePagination, ScriptsPagination } from './pagination';
-
+ 
 document.addEventListener("DOMContentLoaded", ready);
 
 let devicePagination;
@@ -11,6 +11,10 @@ let controlGlobal;
 let mainDevicesNum;
 let mainDevices;
 let currentDelta = 0;
+
+/*
+Навешивание обработчиков событий
+ */
 
 function ready() {
     if(document.getElementsByClassName('app')[0].clientWidth > 1200) {
@@ -55,6 +59,10 @@ function ready() {
     category.addEventListener('click', categoryToggle);
 }
 
+/*
+Обработка прокрутки колесика мышки над блоком устройств на десктопах.
+ */
+
 function onwheel(e) {
     if(e.deltaY < 0) {
         currentDelta += e.deltaY > -40 ? -100 : e.deltaY;
@@ -78,6 +86,10 @@ function onwheel(e) {
     }
 }
 
+/*
+Пагинация скриптов
+ */
+
 function scriptsNextPage() {
     scriptPagination.nextPage();
 }
@@ -85,6 +97,10 @@ function scriptsNextPage() {
 function scriptsPrevPage() {
     scriptPagination.prevPage();
 }
+
+/*
+Пагинация устройств
+ */
 
 function deviceNextPage() {
     devicePagination.nextPage();
@@ -94,18 +110,34 @@ function devicePrevPage() {
     devicePagination.prevPage();
 }
 
+/*
+Анимация меню
+ */
+
 function menuToggle() {
     document.getElementsByTagName('nav')[0].classList.toggle('show-menu');
 }
+
+/*
+Анимация открытия списка категорий
+ */
 
 function categoryToggle() {
     document.getElementsByClassName('favorite-devices-categories')[0].classList.toggle('show-all-categories');
 }
 
+/*
+Поиск первого родителя className, для обработки и прерывания всплытия события
+ */
+
 function findParent(elem, className) {
     if(elem.classList.contains(className)) return elem;
     return findParent(elem.parentElement, className);
 }
+
+/*
+Открытие панели управления для устройства
+ */
 
 function openScenarioDeviceInfo(event) {
     let target = findParent(event.target, 'device-item');
@@ -120,10 +152,18 @@ function openScenarioDeviceInfo(event) {
     });
 }
 
+/*
+Закрытие панели устройства
+ */
+
 function closeScenarioDeviceInfo() {
     document.body.classList.remove('hidden-content');
     controlGlobal.style.display = 'none';
 }
+
+/*
+Выделение категории в списке устройств
+ */
 
 function categoryChecked(event) {
     let target = findParent(event.target, 'favorite-devices-categories-item');
